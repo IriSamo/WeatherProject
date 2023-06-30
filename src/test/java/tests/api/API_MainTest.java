@@ -164,8 +164,8 @@ public class API_MainTest extends BaseTest {
         Reporter.log(String.valueOf(actualUIWeatherCondition), true);
 
         Assert.assertEquals(actualUIWeatherCondition.get(1), expectedCityCountry);
-        //Assert.assertEquals(actualUIWeatherCondition.get(2), expectedCurrentTemp);
-        //Assert.assertEquals(actualUIWeatherCondition.get(3).substring(0, expectedFeelsLike.length()), expectedFeelsLike);
+        Assert.assertEquals(actualUIWeatherCondition.get(2), expectedCurrentTemp);
+        Assert.assertEquals(actualUIWeatherCondition.get(3).substring(0, expectedFeelsLike.length()), expectedFeelsLike);
     }
 
     @Test
@@ -318,7 +318,7 @@ public class API_MainTest extends BaseTest {
         }
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void testAllLinksAreNotBroken() {
         final List<String> allLinks = openBaseURL().getAllLinks();
 
